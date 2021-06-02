@@ -18,7 +18,7 @@ services:
     links:
       - mysql
     ports:
-    - 9000:9000
+      - 9000:9000
     volumes:
     - ./:/var/www/shortener
     - ./docker/php/php.ini:/usr/local/etc/php/php.ini
@@ -27,6 +27,8 @@ services:
   mysql:
     image: mysql:5.7
     container_name: mysql
+    ports:
+      - 3306:3306
     environment:
       - MYSQL_DATABASE=demo
       - MYSQL_ROOT_PASSWORD=root

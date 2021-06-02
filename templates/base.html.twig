@@ -9,11 +9,27 @@
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
+       {# {% block javascripts %}
+
+            <script>
+                $(document).ready(function() {
+                    // you may need to change this code if you are not using Bootstrap Datepicker
+                    $('.js-datepicker').datepicker({
+                        format: 'yyyy-mm-dd'
+                    });
+                });
+            </script>
+            
+            #}{#{{ encore_entry_script_tags('app') }}#}{#
+        {% endblock %}#}
     </head>
     <body>
         {% block body %}{% endblock %}
+
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    
     </body>
 </html>

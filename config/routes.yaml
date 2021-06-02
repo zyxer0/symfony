@@ -1,7 +1,7 @@
-indexs:
+index:
   path: /
   controller: App\Controller\MainController::index
-    
+
 history:
   path: /history
   controller: App\Controller\MainController::history

@@ -2,4 +2,21 @@
 
 {% block body %}
 {{ var1 }}
+
+
+{{ form_start(form) }}
+    {{ form_row(form.LongUrl) }}
+    
+    {{ form_row(form.expiration) }}
+    
+    {{ form_widget(form.saveAndCreateNew, {label: 'label.create_short_url', attr: {class: 'btn btn-primary'}}) }}
+
+{{ form_end(form) }}
+    
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('shortener') }}
 {% endblock %}
