@@ -6,11 +6,14 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping\Index;
 
 /**
- * ORM\Entity(repositoryClass="App\Repository\PostRepository")
- * @ORM\Table(name="short_urls")
- * UniqueEntity(fields={"slug"}, errorPath="title", message="post.slug_unique")
+ * @ORM\Entity(repositoryClass="App\Repository\ShortUrlRepository")
+ * @ORM\Table(name="short_urls", indexes={@Index(name="expiration", columns={"expiration"})})
+ * @UniqueEntity(fields={"shortUrl"}, message="post.slug_unique")
  * @ORM\Entity
  *
  */
@@ -28,14 +31,17 @@ class ShortUrl
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=2048)
+     * @Assert\Url(message="error.wrong_long_url")
+     * @Assert\NotBlank(message="error.wrong_long_url")
+     * @Assert\Length(max=2048)
      */
     private $longUrl;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      */
     private $shortUrl;
 
@@ -46,6 +52,17 @@ class ShortUrl
      */
     private $expiration;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $usages;
+
+    public function __construct()
+    {
+        $this->expiration = new DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -72,15 +89,23 @@ class ShortUrl
         $this->shortUrl = $shortUrl;
     }
 
-    public function getExpiration(): ?DateTime
+    public function getExpiration(): DateTime
     {
         return $this->expiration;
     }
 
-    public function setExpiration(?string $expiration): void
+    public function setExpiration(DateTime $expiration): void
     {
         $this->expiration = $expiration;
     }
-    
-    
+
+    public function getUsages(): int
+    {
+        return $this->usages;
+    }
+
+    public function setUsages(int $usages): void
+    {
+        $this->usages = $usages;
+    }
 }

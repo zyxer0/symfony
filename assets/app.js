@@ -6,9 +6,18 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+import './styles/app.scss';
+
+// import jquery from 'jquery';
+global.jQuery = require('jquery');
+// import '../../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js';
+
+// require("bootstrap");
+require('bootstrap-sass');
+// import 'bootstrap';
+// import bsCustomFileInput from 'bs-custom-file-input';
 
 // start the Stimulus application
-import './bootstrap';
+// import './bootstrap';
 
-import jquery from 'jquery';
+// bsCustomFileInput.init();

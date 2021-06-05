@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="create_form">
+
+        <div class="page-header">
+            <h1>{{ 'created.title'|trans }}</h1>
+        </div>
+        
+        <div class="input-group input-group-lg">
+            <input id="fn_short_url_input" type="text" class="form-control" value="{{ short_url }}">
+            <div class="input-group-btn">
+                <button id="fn_copy_button" class="btn btn-default" type="button" data-result_text="{{ 'created.copied'|trans }}">{{ 'created.copy'|trans }}</button>
+            </div>
+        </div>
+        <p class="well mt-2">
+            {{ 'created.long_url_description'|trans }}
+            <a href="{{ long_url }}" target="_blank" class="long_url">{{ long_url }}</a>
+        </p>
+
+        
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('shortener') }}
+{% endblock %}

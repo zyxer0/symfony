@@ -23,7 +23,7 @@ Encore
     .addEntry('app', './assets/app.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-    .enableStimulusBridge('./assets/controllers.json')
+    //.enableStimulusBridge('./assets/controllers.json')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -50,6 +50,9 @@ Encore
     })
     
     .addEntry('shortener', './assets/shortener.js')
+    
+    // .addEntry('js/bootstrap','./assets/js/bootstrap-4.3.1.js')
+    // .addStyleEntry('css/bootstrap', './assets/css/bootstrap-4.3.1.css')
 
     // enables @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
@@ -58,7 +61,9 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader(function(sassOptions) {}, {
+        resolveUrlLoader: true
+     })
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

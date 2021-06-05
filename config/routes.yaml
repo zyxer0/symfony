@@ -5,3 +5,9 @@ index:
 history:
   path: /history
   controller: App\Controller\MainController::history
+  
+short_url_page:
+  path: /{slug}
+  controller: App\Controller\MainController::externalRedirect
+  requirements:
+    slug: '[\w]{10}'
