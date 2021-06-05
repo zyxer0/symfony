@@ -7,6 +7,9 @@ docker-compose up -d
 composer install
 ```
 ```bash
+yarn install
+```
+```bash
 yarn encore dev
 ```
 ```bash
