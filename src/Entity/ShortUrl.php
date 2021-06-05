@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping\Index;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ShortUrlRepository")
- * @ORM\Table(name="short_urls", indexes={@Index(name="expiration", columns={"expiration"})})
+ * @ORM\Table(name="short_urls")
  * @UniqueEntity(fields={"shortUrl"}, message="post.slug_unique")
  * @ORM\Entity
  *

@@ -2,14 +2,14 @@
 
 {% block body %}
 
-    <div class="create_form">
+    <div class="block">
 
         <div class="page-header">
             <h1>{{ 'created.title'|trans }}</h1>
         </div>
         
         <div class="input-group input-group-lg">
-            <input id="fn_short_url_input" type="text" class="form-control" value="{{ short_url }}">
+            <input id="fn_short_url_input" type="text" class="form-control" value="{{ absolute_short_url }}">
             <div class="input-group-btn">
                 <button id="fn_copy_button" class="btn btn-default" type="button" data-result_text="{{ 'created.copied'|trans }}">{{ 'created.copy'|trans }}</button>
             </div>
@@ -18,6 +18,15 @@
             {{ 'created.long_url_description'|trans }}
             <a href="{{ long_url }}" target="_blank" class="long_url">{{ long_url }}</a>
         </p>
+
+        <div class="mt-2">
+            <p></p>
+                <a href="{{ path('index') }}" class="btn btn-primary">{{ 'create_new_short_url'|trans }}</a>
+            </p>
+            <p>
+                <a href="{{ path('total_clicks', {slug: short_url}) }}">{{ 'created.to_track'|trans }}</a>
+            </p>
+        </div>
 
         
     </div>

@@ -18,6 +18,10 @@
                 <source>error.wrong_long_url</source>
                 <target>Введите корректный урл</target>
             </trans-unit>
+            <trans-unit id="create.title">
+                <source>create.title</source>
+                <target>Создайте короткий урл</target>
+            </trans-unit>
             <trans-unit id="created.title">
                 <source>created.title</source>
                 <target>Ваш короткий урл</target>
@@ -33,6 +37,34 @@
             <trans-unit id="created.copied">
                 <source>created.copied</source>
                 <target>Скопировано</target>
+            </trans-unit>
+            <trans-unit id="created.to_track">
+                <source>created.to_track</source>
+                <target>Отслеживайте количество переходов по вашей ссылке</target>
+            </trans-unit>
+            <trans-unit id="history.title">
+                <source>history.title</source>
+                <target>Количество переходов</target>
+            </trans-unit>
+            <trans-unit id="history.description">
+                <source>history.description</source>
+                <target>Общее количество переходов по вашей ссылке</target>
+            </trans-unit>
+            <trans-unit id="create_new_short_url">
+                <source>create_new_short_url</source>
+                <target>Создать новый урл</target>
+            </trans-unit>
+            <trans-unit id="track.title">
+                <source>track.title</source>
+                <target>Отслеживайте историю кликов</target>
+            </trans-unit>
+            <trans-unit id="track.go_track">
+                <source>track.go_track</source>
+                <target>Найти</target>
+            </trans-unit>
+            <trans-unit id="track.not_found">
+                <source>track.not_found</source>
+                <target>Данный урл не найден</target>
             </trans-unit>
         </body>
     </file>

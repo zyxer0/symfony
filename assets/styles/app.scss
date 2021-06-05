@@ -9,7 +9,7 @@ body {
     background-color: white;
 }
 
-.create_form {
+.block {
     width: 500px;
     padding: 20px;
     position: relative;
@@ -27,7 +27,12 @@ body {
 .long_url {
     word-break: break-word;
 }
-
+.total_clicks {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-size: 85px;
+}
 .mt-1 {
     margin-top: 15px;
 }

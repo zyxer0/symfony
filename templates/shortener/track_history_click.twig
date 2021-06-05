@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    
+{{ form_start(form, {attr: {class: 'block'}}) }}
+
+    <div class="page-header">
+        <h1>{{ 'track.title'|trans }}</h1>
+    </div>
+    
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error|trans }}
+        </div>
+    {% endif %}
+    
+    <div class="form-group">
+        {{ form_label(form.ShortUrl) }}
+        {{ form_widget(form.ShortUrl, {attr: {class: 'form-control'}}) }}
+    </div>
+    
+    {{ form_widget(form.search, {label: 'track.go_track', attr: {class: 'btn btn-primary'}}) }}
+
+{{ form_end(form) }}
+    
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('shortener') }}
+{% endblock %}

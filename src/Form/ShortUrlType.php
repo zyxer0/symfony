@@ -9,6 +9,7 @@ use App\Repository\ShortUrlRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -33,13 +34,12 @@ class ShortUrlType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('LongUrl', null, [
+            ->add('LongUrl', TextType::class, [
                 'attr' => ['autofocus' => true],
                 'label' => 'label.long_url',
-//                'required' => true,
+                'required' => true,
             ])
             ->add('expiration', DateTimeType::class, [
-//                'attr' => ['class' => 'js-datepicker'],
                 'widget' => 'single_text',
                 'label' => 'label.expiration',
                 'help' => 'help.expiration',
@@ -62,7 +62,7 @@ class ShortUrlType extends AbstractType
                         ];
                         $newShortUrl .= chr($ranges[rand(0, 2)]);
                     }
-                } while ($er->findByShortUrl($newShortUrl)); // todo здесь добавить проверку по дате
+                } while ($er->findByShortUrl($newShortUrl));
                 $shortUrl->setShortUrl($newShortUrl);
                 $shortUrl->setUsages(0);
             });

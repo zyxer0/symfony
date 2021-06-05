@@ -2,9 +2,15 @@ index:
   path: /
   controller: App\Controller\MainController::index
 
-history:
-  path: /history
-  controller: App\Controller\MainController::history
+track_total_clicks:
+  path: /click_history
+  controller: App\Controller\MainController::trackTotalClicks
+
+total_clicks:
+  path: /click_history/{slug}
+  controller: App\Controller\MainController::totalClicks
+  requirements:
+    slug: '[\w]{10}'
   
 short_url_page:
   path: /{slug}
